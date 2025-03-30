@@ -12,7 +12,7 @@
     <script>
       const socket = io();
 
-      socket.on('rest', (data) => {
+      socket.on('sleeping', (data) => {
         document.getElementById('text').innerHTML= data;
       })
     </script>

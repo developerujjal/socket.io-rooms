@@ -25,7 +25,9 @@ io.on("connection", (socket) => {
     socket.join('bed-room');
     socket.join('study-room');
 
-    io.to('bed-room').emit('sleeping', 'We are sleeping');
+    const totalLength = io.sockets.adapter.rooms.get('bed-room').size;
+
+    io.to('bed-room').emit('sleeping', `We are sleeping = ${totalLength}`);
     io.to('bed-room').emit('rest', 'I"m taking a rest');
 
     io.to('study-room').emit('study', 'I"m studying now')
